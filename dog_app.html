@@ -13911,12 +13911,14 @@ $$</p>
 <p>We have imported some Python modules to get you started, but feel free to import as many modules as you need.  If you end up getting stuck, here's a hint that specifies a model that trains relatively fast on CPU and attains &gt;1% test accuracy in 5 epochs:</p>
 <p><img src="images/sample_cnn.png" alt="Sample CNN"></p>
 <p><strong>Question 4:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  If you chose to use the hinted architecture above, describe why you think that CNN architecture should work well for the image classification task.</p>
-<p><strong>Answer:</strong>  The CNN architecture used in this project (Find below) draws motivations from the one above. This architecture uses the CNN pattern that is used in several other well known CNN models like VGG16 etc. The idea to combine a conv and max pool layer, and use multiple of those units in sequence. The conv layer increases the depth, which keeping the width/heigh the same, whereas the max pooling layer decreases the scale of the image by 2 everytime, keeping depth the same. The CNN learns much more complex features with every layer. For ex:</p>
+<p><strong>Answer:</strong>  The CNN architecture used in this project (Find below) draws motivations from the one above. This architecture uses the CNN pattern that is used in several other well known CNN models like VGG16 etc.</p>
+<p>The idea to combine a conv and max pool layer, and use multiple of those units in sequence. The conv layer increases the depth (filter maps) keeping the width/heigh the same, whereas the max pooling layer decreases the scale of the image by 2 everytime keeping depth the same, which ensures that the number of parameters are reduced. In this CNN architecture 4 sets of conv/pool layers with <strong>relu activation</strong> have been used, followed by a dropout layer that helps with regularization &amp; ensures generalization, followed by a Global Average Pooling that helps in sharply reducing the overall number of parameters training the model faster without too much loss of accuracy. Finally, a Dense layer with <strong>softmax activation</strong> is used to predict the 133 dog breeds.</p>
+<p>The CNN learns much more complex features with every layer. For ex:</p>
 <ul>
 <li>1st Layer: Colors or Edges</li>
 <li>2nd Layer: Shapes like circles, stripes, and rectangles</li>
-<li>3rd Layer: More complex features: grids, wheels, and even faces</li>
-<li>4th Layer and so on: entire objects</li>
+<li>3rd Layer: More complex features like grids, wheels, and even faces</li>
+<li>4th Layer and so on: entire objects like dogs, cats, cars, humans etc</li>
 </ul>
 <p>With 3 conv/pool layers, accuracy achieved was around 10%, and with 4 conv/pool layers accuracy is around 19.5%.</p>
 
