@@ -14829,7 +14829,8 @@ test_{network} = bottleneck_features['test']</code></pre>
 
 </code></pre>
 <p><strong>Question 5:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  Describe why you think the architecture is suitable for the current problem.</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong>  The model takes Inception_V3 model, strips off the final softmax layer, and adds 1) Global Average Pooling Layer (used to reduce the parameters of the model, and yet provide a very good accuracy) and 2) Dense Layer with softmax activation to predict the 133 dog breeds.</p>
+<p>Bottleneck features using Inception_V3 are passed as input to this model.</p>
 
 </div>
 </div>
